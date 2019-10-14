@@ -11,4 +11,13 @@ object DBContract {
             const val TITLE_ID = "title_id"
         }
     }
+    class  LabelEntry: BaseColumns {
+        companion object {
+            const val TABLE_NAME = "label"
+            const val POSITION_X = "position_x"
+            const val POSITION_Y = "position_y"
+            const val CONTENT_TEXT = "text"
+            const val TYPE = "type"
+        }
+    }
 }
