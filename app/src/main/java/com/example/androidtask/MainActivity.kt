@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
                     MotionEvent.ACTION_DOWN -> {
                         val x = event!!.getX().toString()
                         val y = event!!.getY().toString()
+
+                        val labelView = LabelView(this@MainActivity)
+
+                        do_view.addView(labelView)
                     }
 
                 }
@@ -54,6 +58,10 @@ class MainActivity : AppCompatActivity() {
                     MotionEvent.ACTION_DOWN -> {
                         val x = event!!.getX().toString()
                         val y = event!!.getY().toString()
+
+                        val labelView = LabelView(this@MainActivity)
+
+                        doing_view.addView(labelView)
                     }
 
                 }
@@ -70,6 +78,10 @@ class MainActivity : AppCompatActivity() {
                     MotionEvent.ACTION_DOWN -> {
                         val x = event!!.getX().toString()
                         val y = event!!.getY().toString()
+
+                        val labelView = LabelView(this@MainActivity)
+
+                        done_view.addView(labelView)
                     }
 
                 }
