@@ -33,8 +33,14 @@ class MainActivity : AppCompatActivity() {
         // doViewにクリックリスナー設置
         do_view.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                val x = event!!.getX().toString()
-                val y = event!!.getY().toString()
+
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        val x = event!!.getX().toString()
+                        val y = event!!.getY().toString()
+                    }
+
+                }
 
                 return true
             }
@@ -43,8 +49,14 @@ class MainActivity : AppCompatActivity() {
         // doingViewにリスナー設置
         doing_view.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                val x = event!!.getX().toString()
-                val y = event!!.getY().toString()
+
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        val x = event!!.getX().toString()
+                        val y = event!!.getY().toString()
+                    }
+
+                }
 
                 return true
             }
@@ -53,8 +65,14 @@ class MainActivity : AppCompatActivity() {
         // doneViewにリスナー設置
         done_view.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                val x = event!!.getX().toString()
-                val y = event!!.getY().toString()
+
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        val x = event!!.getX().toString()
+                        val y = event!!.getY().toString()
+                    }
+
+                }
 
                 return true
             }
