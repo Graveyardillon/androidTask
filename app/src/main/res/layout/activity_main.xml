@@ -12,24 +12,27 @@
         android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="title..."
-        android:autofillHints="title..."
+        android:hint="@string/title_hint"
+        android:autofillHints="@string/title_hint"
         android:inputType="text"
         android:layout_weight="4"/>
 
     <View
+        android:id="@+id/do_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#EB973A"
         android:layout_weight="3" />
 
     <View
+        android:id="@+id/doing_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FBC02D"
         android:layout_weight="3" />
 
     <View
+        android:id="@+id/done_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFEB3B"

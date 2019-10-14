@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
+import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
@@ -27,6 +29,36 @@ class MainActivity : AppCompatActivity() {
             val initialText = titleDataBaseHelper.loadRecord()
             title_text.setText(initialText, TextView.BufferType.NORMAL)
         }
+
+        // doViewにクリックリスナー設置
+        do_view.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                val x = event!!.getX().toString()
+                val y = event!!.getY().toString()
+
+                return true
+            }
+        })
+
+        // doingViewにリスナー設置
+        doing_view.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                val x = event!!.getX().toString()
+                val y = event!!.getY().toString()
+
+                return true
+            }
+        })
+
+        // doneViewにリスナー設置
+        done_view.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                val x = event!!.getX().toString()
+                val y = event!!.getY().toString()
+
+                return true
+            }
+        })
 
         // titleバーにリスナー設置
         title_text.setOnKeyListener { v, keyCode, event ->

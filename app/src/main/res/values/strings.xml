@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">androidTask</string>
+    <string name="title_hint">title...</string>
+    <string name="text_hint">text...</string>
 </resources>
