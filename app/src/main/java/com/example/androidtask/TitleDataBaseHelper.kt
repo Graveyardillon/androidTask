@@ -30,7 +30,7 @@ class TitleDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         values.put(DBContract.TitleEntry.TITLE_TEXT, title.title)
         values.put(DBContract.TitleEntry.TITLE_ID, title.id)
 
-        val rowID = db.update(DBContract.TitleEntry.TABLE_NAME, values, "id=?", arrayOf("0"))
+        val rowID = db.update(DBContract.TitleEntry.TABLE_NAME, values, "title_id=?", arrayOf("0"))
 
         return true
     }

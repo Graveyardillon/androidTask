@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:hint="title..."
         android:autofillHints="title..."
+        android:inputType="text"
         android:layout_weight="4"/>
 
     <View
