@@ -2,4 +2,7 @@
     <string name="app_name">androidTask</string>
     <string name="title_hint">title...</string>
     <string name="text_hint">text...</string>
+    <string name="do_view">Do</string>
+    <string name="doing_view">Doing</string>
+    <string name="done_view">Done</string>
 </resources>

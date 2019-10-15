@@ -14,16 +14,11 @@ class LabelView(context: Context) : LinearLayout(context) {
 
             var tappedX = 0
             var tappedY = 0
-            var initX = 0
-            var initY = 0
 
             when (event?.action) {
                 MotionEvent.ACTION_DOWN -> {
                     tappedX = event!!.getX().toInt()
                     tappedY = event!!.getY().toInt()
-
-                    initX = tappedX
-                    initY = tappedY
                 }
 
                 MotionEvent.ACTION_MOVE -> {

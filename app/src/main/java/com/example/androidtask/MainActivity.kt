@@ -67,9 +67,6 @@ class MainActivity : AppCompatActivity() {
                     text.toString()
                 )
 
-                Log.d("OMG debug:", titleDataBaseHelper.getRecordNum().toString())
-
-
                 val result: Boolean
 
                 if(titleDataBaseHelper.getRecordNum() == 0) {
