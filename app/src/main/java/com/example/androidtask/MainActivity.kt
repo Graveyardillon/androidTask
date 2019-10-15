@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                         var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                         params.setMargins(x.toInt(), y.toInt(), 0, 0)
 
-                        do_view.addView(labelView, params)
+                        relative_field.addView(labelView, params)
                     }
                 }
                 return true
