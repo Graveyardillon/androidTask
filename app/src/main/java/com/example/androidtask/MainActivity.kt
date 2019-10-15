@@ -33,8 +33,10 @@ class MainActivity : AppCompatActivity() {
         relative_field.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
 
+                println(v.toString())
+
                 when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> {
+                    MotionEvent.ACTION_UP -> {
                         val x = event!!.getX()
                         val y = event!!.getY()
 
