@@ -39,8 +39,10 @@ class MainActivity : AppCompatActivity() {
                         val y = event!!.getY()
 
                         var labelView = LabelView(this@MainActivity)
+                        var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+                        params.setMargins(x.toInt(), y.toInt(), 0, 0)
 
-                        do_view.addView(labelView)
+                        do_view.addView(labelView, params)
                     }
                 }
                 return true
