@@ -2,7 +2,6 @@ package com.example.androidtask
 
 import android.content.Context
 import android.database.DatabaseUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +9,9 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import android.widget.Toast.LENGTH_LONG
+import androidx.core.view.marginLeft
 import com.example.androidtask.models.TitleModel
 import com.example.androidtask.storage.TitleDataBaseHelper
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,62 +29,20 @@ class MainActivity : AppCompatActivity() {
             title_text.setText(initialText, TextView.BufferType.NORMAL)
         }
 
-        // doViewにクリックリスナー設置
-        do_view.setOnTouchListener(object : View.OnTouchListener {
+        // 全体にクリックリスナー設置
+        relative_field.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
 
                 when (event?.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        val x = event!!.getX().toString()
-                        val y = event!!.getY().toString()
+                        val x = event!!.getX()
+                        val y = event!!.getY()
 
-                        val labelView = LabelView(this@MainActivity)
+                        var labelView = LabelView(this@MainActivity)
 
                         do_view.addView(labelView)
                     }
-
                 }
-
-                return true
-            }
-        })
-
-        // doingViewにリスナー設置
-        doing_view.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        val x = event!!.getX().toString()
-                        val y = event!!.getY().toString()
-
-                        val labelView = LabelView(this@MainActivity)
-
-                        doing_view.addView(labelView)
-                    }
-
-                }
-
-                return true
-            }
-        })
-
-        // doneViewにリスナー設置
-        done_view.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        val x = event!!.getX().toString()
-                        val y = event!!.getY().toString()
-
-                        val labelView = LabelView(this@MainActivity)
-
-                        done_view.addView(labelView)
-                    }
-
-                }
-
                 return true
             }
         })
