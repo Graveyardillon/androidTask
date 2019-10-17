@@ -10,6 +10,9 @@ class LabelView(context: Context) : LinearLayout(context) {
     init {
         View.inflate(context, R.layout.my_label, this)
 
+        var initX = 0
+        var initY = 0
+
         setOnTouchListener{ v: View?, event: MotionEvent? ->
 
             var tappedX = 0
@@ -19,11 +22,14 @@ class LabelView(context: Context) : LinearLayout(context) {
                 MotionEvent.ACTION_DOWN -> {
                     tappedX = event!!.getX().toInt()
                     tappedY = event!!.getY().toInt()
+
+                    initX = tappedX
+                    initY = tappedY
                 }
 
                 MotionEvent.ACTION_MOVE -> {
-                    this.x += event!!.getX() - tappedX.toFloat()
-                    this.y += event!!.getY() - tappedY.toFloat()
+                    this.x += event!!.getX() - tappedX.toFloat() - initX.toFloat()
+                    this.y += event!!.getY() - tappedY.toFloat() - initY.toFloat()
 
                     tappedX = event!!.getX().toInt()
                     tappedY = event!!.getY().toInt()

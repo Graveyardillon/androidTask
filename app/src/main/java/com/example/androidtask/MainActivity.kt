@@ -13,7 +13,9 @@ import android.widget.*
 import android.widget.Toast.LENGTH_LONG
 import androidx.core.view.marginLeft
 import com.example.androidtask.models.TitleModel
+import com.example.androidtask.models.LabelModel
 import com.example.androidtask.storage.TitleDataBaseHelper
+import com.example.androidtask.storage.LabelDataBaseHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,11 +25,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val titleDataBaseHelper = TitleDataBaseHelper(this)
+        val labelDataBaseHelper = LabelDataBaseHelper(this)
 
         if(titleDataBaseHelper.getRecordNum() != 0) {
             val initialText = titleDataBaseHelper.loadRecord()
             title_text.setText(initialText, TextView.BufferType.NORMAL)
         }
+
+        val labelDetails = labelDataBaseHelper.loadLabels()
+
+        labelDetails.get("x")?.let {
+            for(i in 0..(it.count()-1)) {
+
+                println("forloopX:  "+labelDetails.get("x")!![i])
+                println("forloopY:  "+labelDetails.get("y")!![i])
+
+                var labelView = LabelView(this@MainActivity)
+                var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+                params.setMargins(
+                    labelDetails.get("x")!![i].toDouble().toInt(),
+                    labelDetails.get("y")!![i].toDouble().toInt(),
+                    0,
+                    0
+                )
+
+                relative_field.addView(labelView, params)
+            }
+        }
+
+
 
         // 全体にクリックリスナー設置
         relative_field.setOnTouchListener(object : View.OnTouchListener {
@@ -39,6 +65,17 @@ class MainActivity : AppCompatActivity() {
                     MotionEvent.ACTION_UP -> {
                         val x = event!!.getX()
                         val y = event!!.getY()
+
+                        println("x: "+x+"y: "+y)
+
+                        val label = LabelModel(
+                            x.toString(),
+                            y.toString(),
+                            ""
+                        )
+
+                        val result = labelDataBaseHelper.insertLabel(label)
+                        println("stored")
 
                         var labelView = LabelView(this@MainActivity)
                         var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
