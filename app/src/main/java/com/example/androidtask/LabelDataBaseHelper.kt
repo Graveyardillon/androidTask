@@ -61,6 +61,10 @@ class LabelDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return content
     }
 
+    fun deleteLabel() {
+
+    }
+
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(SQL_CREATE_ENTRIES)
     }

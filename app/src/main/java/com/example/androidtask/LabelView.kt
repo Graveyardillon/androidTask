@@ -7,6 +7,12 @@ import android.widget.LinearLayout
 
 class LabelView(context: Context) : LinearLayout(context) {
 
+    companion object {
+        val MAX_DURATION: Int = 500
+    }
+
+    var startTime: Long = 0
+
     init {
         View.inflate(context, R.layout.my_label, this)
 
@@ -19,12 +25,23 @@ class LabelView(context: Context) : LinearLayout(context) {
             var tappedY = 0
 
             when (event?.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    tappedX = event!!.getX().toInt()
-                    tappedY = event!!.getY().toInt()
+                MotionEvent.ACTION_UP -> {
+                    startTime = System.currentTimeMillis()
+                    println("up")
+                }
 
-                    initX = tappedX
-                    initY = tappedY
+                MotionEvent.ACTION_DOWN -> {
+                    if(System.currentTimeMillis() - startTime <= MAX_DURATION) {
+                        // ダブルタップ
+                        println("double tap!!")
+                    } else {
+                        println(System.currentTimeMillis() - startTime)
+                        tappedX = event!!.getX().toInt()
+                        tappedY = event!!.getY().toInt()
+
+                        initX = tappedX
+                        initY = tappedY
+                    }
                 }
 
                 MotionEvent.ACTION_MOVE -> {
