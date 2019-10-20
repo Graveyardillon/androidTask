@@ -20,6 +20,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var max_id = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                     0,
                     0
                 )
+
+                max_id = labelDetails.get("id")!![i].toInt()
 
                 relative_field.addView(labelView, params)
             }
@@ -76,6 +82,8 @@ class MainActivity : AppCompatActivity() {
                         println("stored")
 
                         var labelView = LabelView(this@MainActivity)
+                        max_id = max_id + 1
+                        labelView.tag = max_id
                         var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                         params.setMargins(x.toInt(), y.toInt(), 0, 0)
 
