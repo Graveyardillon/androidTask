@@ -24,6 +24,8 @@ class LabelView(context: Context) : LinearLayout(context) {
         var initX = 0
         var initY = 0
 
+        var toggleDrag = false
+
         setOnTouchListener{ v: View?, event: MotionEvent? ->
 
             var tappedX = 0
@@ -33,6 +35,16 @@ class LabelView(context: Context) : LinearLayout(context) {
                 MotionEvent.ACTION_UP -> {
                     startTime = System.currentTimeMillis()
                     println("up")
+
+                    if(toggleDrag) {
+                        // このタイミングで更新
+                        val x = event!!.getX().toInt()
+                        val y = event!!.getY().toInt()
+
+                        //val text =
+                    }
+
+                    toggleDrag = false
                 }
 
                 MotionEvent.ACTION_DOWN -> {
@@ -60,8 +72,7 @@ class LabelView(context: Context) : LinearLayout(context) {
                     this.x += event!!.getX() - tappedX.toFloat() - initX.toFloat()
                     this.y += event!!.getY() - tappedY.toFloat() - initY.toFloat()
 
-                    tappedX = event!!.getX().toInt()
-                    tappedY = event!!.getY().toInt()
+                    toggleDrag = true
                 }
             }
             true
