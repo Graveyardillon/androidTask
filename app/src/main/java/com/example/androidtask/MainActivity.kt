@@ -37,10 +37,8 @@ class MainActivity : AppCompatActivity() {
         labelDetails.get("x")?.let {
             for(i in 0..(it.count()-1)) {
 
-                println("forloopX:  "+labelDetails.get("x")!![i])
-                println("forloopY:  "+labelDetails.get("y")!![i])
-
                 var labelView = LabelView(this@MainActivity)
+                labelView.tag = labelDetails.get("id")!![i].toInt()
                 var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                 params.setMargins(
                     labelDetails.get("x")!![i].toDouble().toInt(),

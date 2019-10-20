@@ -4,8 +4,13 @@ import android.content.Context
 import android.view.MotionEvent
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import com.example.androidtask.storage.LabelDataBaseHelper
 
 class LabelView(context: Context) : LinearLayout(context) {
+
+    val labelDataBaseHelper = LabelDataBaseHelper(context)
 
     companion object {
         val MAX_DURATION: Int = 500
@@ -34,6 +39,13 @@ class LabelView(context: Context) : LinearLayout(context) {
                     if(System.currentTimeMillis() - startTime <= MAX_DURATION) {
                         // ダブルタップ
                         println("double tap!!")
+
+                        val result = labelDataBaseHelper.deleteLabel(v!!)
+
+                        if(result) {
+                            Toast.makeText(context, "Deleted.", LENGTH_LONG).show()
+                        }
+
                     } else {
                         println(System.currentTimeMillis() - startTime)
                         tappedX = event!!.getX().toInt()
