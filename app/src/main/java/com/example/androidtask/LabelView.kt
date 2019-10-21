@@ -1,11 +1,15 @@
 package com.example.androidtask
 
 import android.content.Context
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.androidtask.storage.LabelDataBaseHelper
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.my_label.view.*
@@ -27,6 +31,19 @@ class LabelView(context: Context) : LinearLayout(context) {
         var initY = 0
 
         var toggleDrag = false
+
+        title.setOnKeyListener { v, keyCode, event ->
+            val editText = v as EditText
+
+            if(event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(editText.windowToken, 0)
+
+                labelDataBaseHelper.updateLabel(this.x.toInt(), this.y.toInt(), title.text.toString(), this.tag.toString())
+            }
+
+            true
+        }
 
         setOnTouchListener{ v: View?, event: MotionEvent? ->
 

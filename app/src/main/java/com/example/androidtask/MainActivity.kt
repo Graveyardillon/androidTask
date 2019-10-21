@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.my_label.view.*
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         var max_id = 1
     }
 
@@ -64,8 +64,6 @@ class MainActivity : AppCompatActivity() {
         // 全体にクリックリスナー設置
         relative_field.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-
-                println(v.toString())
 
                 when (event?.action) {
                     MotionEvent.ACTION_UP -> {
