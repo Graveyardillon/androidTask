@@ -7,6 +7,8 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import com.example.androidtask.storage.LabelDataBaseHelper
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.my_label.view.*
 
 class LabelView(context: Context) : LinearLayout(context) {
 
@@ -41,7 +43,8 @@ class LabelView(context: Context) : LinearLayout(context) {
                         val x = event!!.getX().toInt()
                         val y = event!!.getY().toInt()
 
-                        //val text =
+                        val text = title.text
+                        println(text)
                     }
 
                     toggleDrag = false
