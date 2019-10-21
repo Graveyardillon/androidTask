@@ -80,10 +80,15 @@ class LabelDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return true
     }
 
-    fun updateLabel(v: View, id: Int) {
+    fun updateLabel(x: Int, y: Int, text: String, id: String) {
         val db = writableDatabase
 
+        val values = ContentValues()
+        values.put(DBContract.LabelEntry.POSITION_X, x.toString())
+        values.put(DBContract.LabelEntry.POSITION_Y, y.toString())
+        values.put(DBContract.LabelEntry.CONTENT_TEXT, text)
 
+        db.update(DBContract.LabelEntry.TABLE_NAME, values, "_id=?", arrayOf(id))
     }
 
     override fun onCreate(db: SQLiteDatabase?) {

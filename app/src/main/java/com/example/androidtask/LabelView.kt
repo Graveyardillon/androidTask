@@ -15,7 +15,7 @@ class LabelView(context: Context) : LinearLayout(context) {
     val labelDataBaseHelper = LabelDataBaseHelper(context)
 
     companion object {
-        val MAX_DURATION: Int = 500
+        val MAX_DURATION: Int = 200
     }
 
     var startTime: Long = 0
@@ -39,12 +39,16 @@ class LabelView(context: Context) : LinearLayout(context) {
                     println("up")
 
                     if(toggleDrag) {
-                        // このタイミングで更新
-                        val x = event!!.getX().toInt()
-                        val y = event!!.getY().toInt()
+                        // ドラッグ後，このタイミングで更新
+                        this.x += event!!.getX() - tappedX.toFloat() - initX.toFloat()
+                        this.y += event!!.getY() - tappedY.toFloat() - initY.toFloat()
 
-                        val text = title.text
-                        println(text)
+                        println("U: "+this.x.toString() + "/" + this.y.toString())
+
+                        val text = title.text.toString()
+                        val id = v!!.tag.toString()
+
+                        labelDataBaseHelper.updateLabel(this.x.toInt(), this.y.toInt(), text, id)
                     }
 
                     toggleDrag = false
@@ -65,6 +69,8 @@ class LabelView(context: Context) : LinearLayout(context) {
                         println(System.currentTimeMillis() - startTime)
                         tappedX = event!!.getX().toInt()
                         tappedY = event!!.getY().toInt()
+
+                        println("D: "+tappedX.toString()+"/"+tappedY.toString())
 
                         initX = tappedX
                         initY = tappedY
