@@ -17,6 +17,7 @@ import com.example.androidtask.models.LabelModel
 import com.example.androidtask.storage.TitleDataBaseHelper
 import com.example.androidtask.storage.LabelDataBaseHelper
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.my_label.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 var labelView = LabelView(this@MainActivity)
                 labelView.tag = labelDetails.get("id")!![i].toInt()
+                labelView.title.setText(labelDetails.get("text")!![i])
                 var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                 params.setMargins(
                     labelDetails.get("x")!![i].toDouble().toInt(),
