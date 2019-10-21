@@ -78,8 +78,7 @@ class MainActivity : AppCompatActivity() {
                             ""
                         )
 
-                        val result = labelDataBaseHelper.insertLabel(label)
-                        println("stored")
+                        labelDataBaseHelper.insertLabel(label)
 
                         var labelView = LabelView(this@MainActivity)
                         max_id = max_id + 1

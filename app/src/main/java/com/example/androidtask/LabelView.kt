@@ -57,9 +57,10 @@ class LabelView(context: Context) : LinearLayout(context) {
                 MotionEvent.ACTION_DOWN -> {
                     if(System.currentTimeMillis() - startTime <= MAX_DURATION) {
                         // ダブルタップ
-                        println("double tap!!")
 
                         val result = labelDataBaseHelper.deleteLabel(v!!)
+
+                        this.visibility = View.INVISIBLE
 
                         if(result) {
                             Toast.makeText(context, "Deleted.", LENGTH_LONG).show()
