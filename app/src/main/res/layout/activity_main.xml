@@ -21,71 +21,77 @@
             android:inputType="text"
             android:layout_weight="48"/>
 
-        <FrameLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:id="@+id/relative_field"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:translationZ="4dp"/>
+                android:layout_weight="3">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:translationZ="2dp">
-
-                <FrameLayout
-                    android:id="@+id/do_view"
+                <RelativeLayout
+                    android:id="@+id/relative_field"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EB973A"
-                    android:layout_weight="3">
+                    android:translationZ="4dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/do_view"
-                        android:textSize="30sp"/>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/doing_view"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FBC02D"
-                    android:layout_weight="3">
+                    android:orientation="vertical"
+                    android:translationZ="2dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/doing_view"
-                        android:textSize="30sp"/>
+                    <FrameLayout
+                        android:id="@+id/do_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#EB973A"
+                        android:layout_weight="3">
 
-                </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/do_view"
+                            android:textSize="30sp"/>
 
-                <FrameLayout
-                    android:id="@+id/done_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFEB3B"
-                    android:layout_weight="3">
+                    </FrameLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/done_view"
-                        android:textSize="30sp"/>
+                    <FrameLayout
+                        android:id="@+id/doing_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FBC02D"
+                        android:layout_weight="3">
 
-                </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/doing_view"
+                            android:textSize="30sp"/>
 
-            </LinearLayout>
+                    </FrameLayout>
 
-        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/done_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFEB3B"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/done_view"
+                            android:textSize="30sp"/>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </HorizontalScrollView>
 
     </LinearLayout>
 
