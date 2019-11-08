@@ -90,8 +90,6 @@ class LabelView(context: Context) : LinearLayout(context) {
                         tappedX = event!!.getX().toInt()
                         tappedY = event!!.getY().toInt()
 
-                        println("D: "+tappedX.toString()+"/"+tappedY.toString())
-
                         initX = tappedX
                         initY = tappedY
                     }

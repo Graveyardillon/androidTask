@@ -62,7 +62,10 @@ class MainActivity : AppCompatActivity() {
         horizontal_scroll_view.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             println("scroll detected.")
 
+            var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+            params.setMargins(-scrollX, 0, 0, 0)
 
+            drawer_field.layoutParams = params
         }
 
         // 全体にクリックリスナー設置
