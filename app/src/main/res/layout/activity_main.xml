@@ -28,14 +28,21 @@
 
             <RelativeLayout
                 android:id="@+id/biggest_field"
-                android:layout_width="5000dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:translationZ="4dp">
 
                 <RelativeLayout
                     android:id="@+id/relative_field"
-                    android:layout_width="5000dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="1000dp"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/transparent_view"
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
@@ -53,12 +60,12 @@
 
                     <RelativeLayout
                         android:id="@+id/transparent_field"
-                        android:layout_width="5000dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <RelativeLayout
                             android:id="@+id/drawer_field"
-                            android:layout_width="5000dp"
+                            android:layout_width="1000dp"
                             android:layout_height="match_parent" />
 
                     </RelativeLayout>

@@ -130,5 +130,9 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        transparent_view.setOnTouchListener { v, event ->
+            false
+        }
+
     }
 }
