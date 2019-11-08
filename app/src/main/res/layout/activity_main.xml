@@ -27,10 +27,17 @@
             android:layout_weight="3">
 
             <RelativeLayout
-                android:id="@+id/relative_field"
-                android:layout_width="match_parent"
+                android:id="@+id/biggest_field"
+                android:layout_width="5000dp"
                 android:layout_height="match_parent"
-                android:translationZ="4dp"/>
+                android:translationZ="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/relative_field"
+                    android:layout_width="5000dp"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
 
             <HorizontalScrollView
                 android:id="@+id/horizontal_scroll_view"
@@ -51,7 +58,7 @@
 
                         <RelativeLayout
                             android:id="@+id/drawer_field"
-                            android:layout_width="match_parent"
+                            android:layout_width="5000dp"
                             android:layout_height="match_parent" />
 
                     </RelativeLayout>

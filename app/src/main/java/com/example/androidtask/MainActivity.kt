@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             var params: RelativeLayout.LayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
             params.setMargins(-scrollX, 0, 0, 0)
 
-            drawer_field.layoutParams = params
+            relative_field.layoutParams = params
         }
 
         // 全体にクリックリスナー設置
