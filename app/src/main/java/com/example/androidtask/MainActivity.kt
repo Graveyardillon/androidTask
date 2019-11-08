@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // 全体にクリックリスナー設置
-        relative_field.setOnTouchListener(object : View.OnTouchListener {
+        drawer_field.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
 
                 when (event?.action) {

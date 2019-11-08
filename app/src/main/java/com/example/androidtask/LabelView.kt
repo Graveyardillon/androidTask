@@ -75,6 +75,8 @@ class LabelView(context: Context) : LinearLayout(context) {
                     if(System.currentTimeMillis() - startTime <= MAX_DURATION) {
                         // ダブルタップ
 
+                        val mainActivity = MainActivity()
+
                         val result = labelDataBaseHelper.deleteLabel(v!!)
 
                         this.visibility = View.INVISIBLE
