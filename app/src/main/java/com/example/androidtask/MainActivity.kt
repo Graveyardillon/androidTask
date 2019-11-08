@@ -59,7 +59,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        horizontal_scroll_view.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            println("scroll detected.")
 
+
+        }
 
         // 全体にクリックリスナー設置
         drawer_field.setOnTouchListener(object : View.OnTouchListener {
@@ -69,8 +73,6 @@ class MainActivity : AppCompatActivity() {
                     MotionEvent.ACTION_UP -> {
                         val x = event!!.getX()
                         val y = event!!.getY()
-
-                        println("x: "+x+"y: "+y)
 
                         val label = LabelModel(
                             x.toString(),

@@ -33,6 +33,7 @@
                 android:translationZ="4dp"/>
 
             <HorizontalScrollView
+                android:id="@+id/horizontal_scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:translationZ="2dp"
